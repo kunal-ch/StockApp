@@ -1,6 +1,6 @@
 package com.kc.stockapp.domain.models
 
-data class Data(
+data class StockData(
     val avg_price: String?,
     val close: Double?,
     val cnc_used_quantity: Int?,
