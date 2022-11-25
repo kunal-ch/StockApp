@@ -1,6 +1,5 @@
 package com.kc.stockapp.presentation.stock_listing
 
-import android.util.Log
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable

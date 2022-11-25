@@ -1,5 +1,6 @@
 package com.kc.stockapp.presentation.stock_listing
 
+import android.util.Log
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
@@ -10,8 +11,10 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.kc.stockapp.utils.NetworkUtils
 import kotlinx.coroutines.launch
 
 @ExperimentalMaterialApi
@@ -61,10 +64,6 @@ fun StockListingScreen(
             }
         }
     ) {
-
-        if(state.error == null) {
-            MainContent(state.stocks)
-        }
         Box(
             modifier = Modifier.fillMaxSize(),
             contentAlignment = Alignment.Center
@@ -76,6 +75,9 @@ fun StockListingScreen(
                     text = state.error,
                     color = MaterialTheme.colors.error
                 )
+            }
+            if(state.error == null) {
+                MainContent(state.stocks)
             }
         }
     }
